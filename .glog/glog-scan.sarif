@@ -1,0 +1,189 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Glog.AI",
+          "organization": "Glog.AI",
+          "fullName": "Glog, Making software more secure",
+          "version": "1.0.0",
+          "semanticVersion": "1.0.0",
+          "informationUri": "https://www.glog.ai",
+          "rules": [
+            {
+              "id": "3aeccc60-5710-3170-8c5b-41b6eb48605a",
+              "name": "python.flask.security.audit.hardcoded-config.avoid_hardcoded_config_SECRET_KEY",
+              "shortDescription": {
+                "text": "Opengrep Finding: python.flask.security.audit.hardcoded-config.avoid_hardcoded_config_SECRET_KEY"
+              },
+              "fullDescription": {
+                "text": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "helpUri": "https://semgrep.dev/r/python.flask.security.audit.hardcoded-config.avoid_hardcoded_config_SECRET_KEY",
+              "help": {
+                "text": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [Semgrep Rule](https://semgrep.dev/r/python.flask.security.audit.hardcoded-config.avoid_hardcoded_config_SECRET_KEY)\n - [https://bento.dev/checks/flask/avoid-hardcoded-config/](https://bento.dev/checks/flask/avoid-hardcoded-config/)\n - [https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#builtin-configuration-values](https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#builtin-configuration-values)\n - [https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#environment-and-debug-features](https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#environment-and-debug-features)\n"
+              },
+              "properties": {
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "ad068508-6f38-322a-83b5-4714eb8e733e",
+              "name": "resources.rules.python.dlint-catastrophic-redos",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.python.dlint-catastrophic-redos"
+              },
+              "fullDescription": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high"
+              }
+            },
+            {
+              "id": "d7de1dd2-8cef-36a6-b401-a12c836df4aa",
+              "name": "resources.rules.python.dlint-catastrophic-redos",
+              "shortDescription": {
+                "text": "Opengrep Finding: resources.rules.python.dlint-catastrophic-redos"
+              },
+              "fullDescription": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+              },
+              "defaultConfiguration": {
+                "enabled": true,
+                "level": "error"
+              },
+              "help": {
+                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
+                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
+              },
+              "properties": {
+                "precision": "very-high"
+              }
+            }
+          ],
+          "language": "en-US",
+          "contents": [
+            "localizedData",
+            "nonLocalizedData"
+          ],
+          "isComprehensive": false
+        }
+      },
+      "language": "en-US",
+      "results": [
+        {
+          "ruleId": "3aeccc60-5710-3170-8c5b-41b6eb48605a",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1,
+                  "endLine": 13,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "vuln_app.app.config['SECRET_KEY'] = 'random'"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "d06364ab703ef8ecf8a492baf579c8e4eff83eae9cd67b2323840154ea1f34cbac3377a0a0a668544de07aa0107c7788d3661f17c1aaacd8e843ecaa19cf0156_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "ad068508-6f38-322a-83b5-4714eb8e733e",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Regex `regex` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "api_views/users.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 16,
+                  "endLine": 163,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "            if (re.search(regex, request_data.get('email'))):"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "e29fba0a09d1f272fea5645d4ac46583284867eed2af1d2e01cfa51c75f4e2a904295d144530912b28aa04e83b40826287cbc504db71483bac8a17d92f0c1402_0"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "d7de1dd2-8cef-36a6-b401-a12c836df4aa",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Regex `r\"^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@{1}([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "api_views/users.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 21,
+                  "endLine": 146,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "            match = re.search(\n                r\"^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@{1}([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$\",\n                str(request_data.get('email')))"
+                  }
+                }
+              }
+            }
+          ],
+          "fingerprints": {
+            "matchBasedId/v1": "e5f13050fc16480b268696cd7b08a3467a2ecf095cac64cf1c3c2cc67014ec96cb98ad97d0455a2f7912dfec0e15536156383c1392d5f2f325f47f07cb4c90db_0"
+          },
+          "properties": {}
+        }
+      ],
+      "newlineSequences": [
+        "\r\n",
+        "\n"
+      ]
+    }
+  ]
+}
