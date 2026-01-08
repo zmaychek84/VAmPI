@@ -12,69 +12,6 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "3aeccc60-5710-3170-8c5b-41b6eb48605a",
-              "name": "resources.rules.python.avoid_hardcoded_config_SECRET_KEY",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.python.avoid_hardcoded_config_SECRET_KEY"
-              },
-              "fullDescription": {
-                "text": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://bento.dev/checks/flask/avoid-hardcoded-config/](https://bento.dev/checks/flask/avoid-hardcoded-config/)\n - [https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#builtin-configuration-values](https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#builtin-configuration-values)\n - [https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#environment-and-debug-features](https://flask.palletsprojects.com/en/1.1.x/config/?highlight=configuration#environment-and-debug-features)\n"
-              },
-              "properties": {
-                "precision": "very-high"
-              }
-            },
-            {
-              "id": "ad068508-6f38-322a-83b5-4714eb8e733e",
-              "name": "resources.rules.python.dlint-catastrophic-redos",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.python.dlint-catastrophic-redos"
-              },
-              "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
-              },
-              "properties": {
-                "precision": "very-high"
-              }
-            },
-            {
-              "id": "d7de1dd2-8cef-36a6-b401-a12c836df4aa",
-              "name": "resources.rules.python.dlint-catastrophic-redos",
-              "shortDescription": {
-                "text": "Opengrep Finding: resources.rules.python.dlint-catastrophic-redos"
-              },
-              "fullDescription": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-              },
-              "defaultConfiguration": {
-                "enabled": true,
-                "level": "error"
-              },
-              "help": {
-                "text": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n💎 Enable cross-file analysis and Pro rules for free at sg.run/pro",
-                "markdown": "Regex `$X` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)\n\n#### 💎 Enable cross-file analysis and Pro rules for free at <a href='https://sg.run/pro'>sg.run/pro</a>\n\n<b>References:</b>\n - [https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/](https://r2c.dev/blog/2020/finding-python-redos-bugs-at-scale-using-dlint-and-r2c/)\n - [https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/](https://r2c.dev/blog/2020/improving-redos-detection-with-dlint-and-r2c/)\n"
-              },
-              "properties": {
-                "precision": "very-high"
-              }
-            },
-            {
               "id": "e2f65d41-f8c4-3248-bf81-193ed8afa4fc",
               "name": "Potential Interface Binding Vulnerability",
               "helpUri": "https://www.glog.ai/",
@@ -95,6 +32,108 @@
                   "CWE-933"
                 ]
               }
+            },
+            {
+              "id": "77b2be68-d310-3924-9525-64eaa5c6ffb4",
+              "name": "High-Risk Dockerfile Vulnerability: Lack of Non-Root User Specification",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn Docker, the \"High-Risk Dockerfile Vulnerability: Lack of Non-Root User Specification\" vulnerability refers to the situation where a Dockerfile is configured to run its processes as root by default. This is a security concern because if an attacker manages to break out from the container, they would have root access to the host system, which could lead to severe damage.\n\n## Security Concern\n\nRunning Docker containers as root is a common practice due to its simplicity, but it's a bad habit that can lead to serious security issues. If a user manages to break out of the container, they would have root access to the Docker host. This could lead to unauthorized access, data leakage, data corruption, or even denial-of-service attacks.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to always run processes inside Docker containers as a non-root user. This can be achieved by creating a new user in the Dockerfile and switching to this user before executing any processes.\n\n## Source Code Fix Recommendation\n\nHere is a fix for the provided Dockerfile:\n\n```Dockerfile\nFROM python:3.11-alpine as builder\n\n# Create a new user 'nonroot' and switch to it\nRUN adduser -D nonroot\nUSER nonroot\n\n# Continue with the rest of the Dockerfile...\n```\n\nThis will ensure that all subsequent commands in the Dockerfile are run as the non-root user.\n\n## References\n\n- [CWE-250: Execution with Unnecessary Privileges](https://cwe.mitre.org/data/definitions/250.html)\n\nPlease note that the links provided are valid and active for anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-250",
+                    "url": "https://cwe.mitre.org/data/definitions/250.html"
+                  }
+                ],
+                "severity": "HIGH",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-250"
+                ]
+              }
+            },
+            {
+              "id": "bd91ec76-b6ba-3ba6-a284-a69dde8a1830",
+              "name": "High-Risk Vulnerability in Flask Package, Resolved in Versions 2.3.2 and 2.2.5 (CVE-2023-30861)",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe Flask package in Docker programming language versions prior to 2.3.2 and 2.2.5 has a high-risk vulnerability (CVE-2023-30861). This vulnerability allows an attacker to execute arbitrary code remotely on the target system. This is a serious security concern as it can lead to unauthorized access and control over the system, data breaches, and other malicious activities.\n\n## Security Concern\n\nThis vulnerability is a security concern because it allows an attacker to execute arbitrary code remotely on the target system. This can lead to unauthorized access and control over the system, data breaches, and other malicious activities. The attacker can potentially gain full control over the system, manipulate data, install malicious software, and perform other harmful actions.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to upgrade the Flask package to version 2.3.2 or 2.2.5 or later. Regularly updating and patching software is a good practice to prevent such vulnerabilities. Also, it is advisable to follow secure coding practices and perform regular security audits to identify and fix potential vulnerabilities.\n\n## Source Code Fix Recommendation\n\nTo fix this vulnerability, you need to upgrade the Flask package to a secure version. Here is how you can do it:\n\n```python\npip install --upgrade flask==2.3.2\n```\n\nor\n\n```python\npip install --upgrade flask==2.2.5\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies to execute properly:\n\n- Flask==2.3.2 or Flask==2.2.5\n\n## References\n\n- [OWASP Top 10](https://owasp.org/www-project-top-ten/)\n- [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/)\n\nPlease note that the links provided are valid and active for anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "cwe": [],
+                "severity": "HIGH",
+                "kind": "FAIL"
+              }
+            },
+            {
+              "id": "3aeccc60-5710-3170-8c5b-41b6eb48605a",
+              "name": "Detected Hardcoded `SECRET_KEY` Vulnerability",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Detected Hardcoded `SECRET_KEY` Vulnerability\" is a security vulnerability that occurs when a developer hardcodes a secret key in a Python application. This is a serious issue because if an attacker gains access to the source code, they can easily find the secret key and use it to compromise the system. This vulnerability is especially dangerous in open-source projects where the source code is publicly available.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid hardcoding secret keys in your application. Instead, you should store them in environment variables or in a secure configuration file that is not included in the source code repository. This way, even if an attacker gains access to the source code, they will not be able to find the secret key.\n\n## Source Code Fix Recommendation\n\nIf your code looks like this:\n\n```python\nfrom flask import Flask\napp = Flask(__name__)\napp.config['SECRET_KEY'] = 'hardcoded-secret-key'\n```\n\nYou should change it to this:\n\n```python\nimport os\nfrom flask import Flask\napp = Flask(__name__)\napp.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')\n```\n\nAnd then set the `SECRET_KEY` environment variable in your production environment.\n\n## Library Dependencies\n\nThe code example requires the following library:\n\n- Flask\n\n## References\n\n- [CWE-798: Use of Hard-coded Credentials](https://cwe.mitre.org/data/definitions/798.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-798",
+                    "url": "https://cwe.mitre.org/data/definitions/798.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-798"
+                ]
+              }
+            },
+            {
+              "id": "d7de1dd2-8cef-36a6-b401-a12c836df4aa",
+              "name": "Potential Regex Catastrophic Backtracking Vulnerability Leading to Denial of Service Attacks",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe \"Potential Regex Catastrophic Backtracking Vulnerability Leading to Denial of Service Attacks\" vulnerability in Python refers to a situation where a regular expression (regex) is written in such a way that it can cause the regex engine to enter into a state of \"catastrophic backtracking\". This can occur when the regex pattern contains multiple quantifiers that can match the same input in multiple ways. In such cases, the regex engine may end up trying all possible combinations, which can lead to a significant increase in CPU usage and time, potentially leading to a Denial of Service (DoS) attack.\n\nIn the provided code, the regular expression used to validate email addresses could potentially lead to catastrophic backtracking if an attacker provides a specially crafted input.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid using regular expressions that can lead to catastrophic backtracking. This can be achieved by:\n\n- Avoiding nested quantifiers and using possessive quantifiers where possible.\n- Limiting the input size for regex operations.\n- Using non-backtracking (atomic) groups where appropriate.\n- Using a timeout for regex operations.\n\n## Source Code Fix Recommendation\n\nThe provided code can be fixed by rewriting the regular expression to avoid potential catastrophic backtracking. Here's a simplified version of an email validation regex that should not cause catastrophic backtracking:\n\n```python\nimport re\n\nemail = str(request_data.get('email'))\nmatch = re.fullmatch(r\"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\", email)\n```\n\n## Library Dependencies\n\nThe provided code requires the following Python standard library:\n\n- `re`: This module provides support for regular expressions in Python.\n\n## References\n\n- [OWASP: Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\n- [CWE-400: Uncontrolled Resource Consumption](https://cwe.mitre.org/data/definitions/400.html)"
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-400",
+                    "url": "https://cwe.mitre.org/data/definitions/400.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-400"
+                ]
+              }
+            },
+            {
+              "id": "ad068508-6f38-322a-83b5-4714eb8e733e",
+              "name": "\"Potential Vulnerability to Catastrophic Backtracking in Regex `regex` Leading to Denial of Service Attacks\"",
+              "helpUri": "https://www.glog.ai/",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nIn Python, the `re` module provides support for regular expressions. However, certain regular expressions can lead to a vulnerability known as \"Catastrophic Backtracking\". This occurs when a regular expression takes a very long time to evaluate, potentially leading to a Denial of Service (DoS) attack. This is because the regular expression engine can end up trying all possible combinations of the input, which can take an exponential amount of time for complex regular expressions or large inputs.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid using regular expressions that can lead to catastrophic backtracking. This typically involves avoiding nested quantifiers, or using non-greedy quantifiers where possible. Additionally, you should validate and sanitize all user input before processing it with a regular expression.\n\n## Code Fix Recommendation\n\nWithout knowing the exact regular expression used in `regex`, it's hard to provide a specific fix. However, here's a general recommendation:\n\n```python\nimport re\n\n# Avoid nested quantifiers and use non-greedy quantifiers where possible\nsafe_regex = r\"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$\"\n\nif re.search(safe_regex, request_data.get('email')):\n    # process the email\n```\n\nIn this example, `safe_regex` is a simple regular expression for validating email addresses that avoids nested quantifiers and uses non-greedy quantifiers.\n\n## Library Dependencies\n\nThe code example requires the `re` module, which is included in the Python Standard Library, so no additional library dependencies are needed.\n\n## References\n\n- [OWASP Regular expression Denial of Service - ReDoS](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)\n- [CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion')](https://cwe.mitre.org/data/definitions/400.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing."
+              },
+              "properties": {
+                "cwe": [
+                  {
+                    "id": "CWE-400",
+                    "url": "https://cwe.mitre.org/data/definitions/400.html"
+                  }
+                ],
+                "severity": "MEDIUM",
+                "kind": "FAIL",
+                "tags": [
+                  "CWE-400"
+                ]
+              }
             }
           ],
           "language": "en-US",
@@ -107,99 +146,6 @@
       },
       "language": "en-US",
       "results": [
-        {
-          "ruleId": "3aeccc60-5710-3170-8c5b-41b6eb48605a",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Hardcoded variable `SECRET_KEY` detected. Use environment variables or config files instead"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "config.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 13,
-                  "startColumn": 1,
-                  "endLine": 13,
-                  "endColumn": 45,
-                  "snippet": {
-                    "text": "vuln_app.app.config['SECRET_KEY'] = 'random'"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "91eaa2c4c924d0cded3dc728aec7ca788f881b177802484b431ddaef8022b80fc3a8deeda528a8a46a12962304a9d4f3cc6c804c6f7b201283b5e0a2f339b5ac_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "ad068508-6f38-322a-83b5-4714eb8e733e",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Regex `regex` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "api_views/users.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 163,
-                  "startColumn": 16,
-                  "endLine": 163,
-                  "endColumn": 61,
-                  "snippet": {
-                    "text": "            if (re.search(regex, request_data.get('email'))):"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "e29fba0a09d1f272fea5645d4ac46583284867eed2af1d2e01cfa51c75f4e2a904295d144530912b28aa04e83b40826287cbc504db71483bac8a17d92f0c1402_0"
-          },
-          "properties": {}
-        },
-        {
-          "ruleId": "d7de1dd2-8cef-36a6-b401-a12c836df4aa",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Regex `r\"^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@{1}([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$\"` may be vulnerable to catastrophic backtracking, which may lead to denial of service attacks. (This rule only matches regex usage, not actual REDoS patterns. For full detection, use Semgrep Pro Engine.)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "api_views/users.py",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startLine": 144,
-                  "startColumn": 21,
-                  "endLine": 146,
-                  "endColumn": 48,
-                  "snippet": {
-                    "text": "            match = re.search(\n                r\"^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@{1}([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$\",\n                str(request_data.get('email')))"
-                  }
-                }
-              }
-            }
-          ],
-          "fingerprints": {
-            "matchBasedId/v1": "e5f13050fc16480b268696cd7b08a3467a2ecf095cac64cf1c3c2cc67014ec96cb98ad97d0455a2f7912dfec0e15536156383c1392d5f2f325f47f07cb4c90db_0"
-          },
-          "properties": {}
-        },
         {
           "ruleId": "e2f65d41-f8c4-3248-bf81-193ed8afa4fc",
           "kind": "fail",
@@ -243,6 +189,185 @@
             "issue_severity": "MEDIUM",
             "issue_confidence": "MEDIUM"
           }
+        },
+        {
+          "ruleId": "77b2be68-d310-3924-9525-64eaa5c6ffb4",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "High-Risk Dockerfile Vulnerability: Lack of Non-Root User Specification"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "Dockerfile",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1,
+                  "endLine": 1,
+                  "endColumn": 1,
+                  "snippet": {
+                    "text": "FROM python:3.11-alpine as builder"
+                  }
+                }
+              },
+              "message": {
+                "text": "Dockerfile"
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "d28f56f2796bf6445c445d9786eb0f43105c4861aee394ed41e87d83e3b23f3d",
+            "glog-pfp-ruleFileCode/v1": "3075810043d67c1f3dd5dba1638a010e556a59060a2d716eacce33ddfaaa4048"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "3075810043d67c1f3dd5dba1638a010e556a59060a2d716eacce33ddfaaa4048"
+          }
+        },
+        {
+          "ruleId": "bd91ec76-b6ba-3ba6-a284-a69dde8a1830",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "High-Risk Vulnerability in Flask Package, Resolved in Versions 2.3.2 and 2.2.5 (CVE-2023-30861)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "requirements.txt",
+                  "uriBaseId": "ROOTPATH"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 1,
+                  "endLine": 2,
+                  "endColumn": 1,
+                  "snippet": {
+                    "text": "flask==2.2.2"
+                  }
+                }
+              },
+              "message": {
+                "text": "requirements.txt: flask@2.2.2"
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "fc56557772ae0c4af9d64624947db6e34768e8fd6d51e8340bf70fe6ca29158f",
+            "glog-pfp-ruleFileCode/v1": "9d17d952deb11fa309bebc7322fb03aa8d3515ab7d9e129dfc415f8ab9ff774c"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "9d17d952deb11fa309bebc7322fb03aa8d3515ab7d9e129dfc415f8ab9ff774c"
+          }
+        },
+        {
+          "ruleId": "3aeccc60-5710-3170-8c5b-41b6eb48605a",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Detected Hardcoded `SECRET_KEY` Vulnerability"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "config.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1,
+                  "endLine": 13,
+                  "endColumn": 45,
+                  "snippet": {
+                    "text": "vuln_app.app.config['SECRET_KEY'] = 'random'"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "124dc448473362ed0f9bafa0ddde611cc28f4e26f0d885e226c5035d6c361e16",
+            "glog-pfp-ruleFileCode/v1": "759e78cedfc9d6c0c8a8fab0d3df198a4ac985d01d41e460136894341cb0f23b"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "759e78cedfc9d6c0c8a8fab0d3df198a4ac985d01d41e460136894341cb0f23b"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "d7de1dd2-8cef-36a6-b401-a12c836df4aa",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Potential Regex Catastrophic Backtracking Vulnerability Leading to Denial of Service Attacks"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "api_views/users.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 21,
+                  "endLine": 146,
+                  "endColumn": 48,
+                  "snippet": {
+                    "text": "            match = re.search(\n                r\"^([0-9a-zA-Z]([-.\\w]*[0-9a-zA-Z])*@{1}([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$\",\n                str(request_data.get('email')))"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "019e9ba0410b00d9b55b49744fe6cf7a1d9bdac2dc111df40fed167f6fc67161",
+            "glog-pfp-ruleFileCode/v1": "2d1ffd5b57bffb0f30ef26c3199cb559409f65cb6bc397d991b5b8ee4aafa05f"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "2d1ffd5b57bffb0f30ef26c3199cb559409f65cb6bc397d991b5b8ee4aafa05f"
+          },
+          "properties": {}
+        },
+        {
+          "ruleId": "ad068508-6f38-322a-83b5-4714eb8e733e",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Potential Vulnerability to Catastrophic Backtracking in Regex `regex` Leading to Denial of Service Attacks\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "api_views/users.py",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 16,
+                  "endLine": 163,
+                  "endColumn": 61,
+                  "snippet": {
+                    "text": "            if (re.search(regex, request_data.get('email'))):"
+                  }
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "glog-pfp-ruleFileLineCode/v1": "ec4392c11a19d68ff51179be4b032475cc23f7ae2677f69ebac2ffc871597683",
+            "glog-pfp-ruleFileCode/v1": "83957f3f13d68dfdf4354521db278f85422c89c2f67a6a379b791286a8e83b41"
+          },
+          "fingerprints": {
+            "glog-fp-ruleFileCode/v1": "83957f3f13d68dfdf4354521db278f85422c89c2f67a6a379b791286a8e83b41"
+          },
+          "properties": {}
         }
       ],
       "newlineSequences": [
